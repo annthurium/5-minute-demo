@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tilde Ann Thurium",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "twilio": "^3.31.0"
+  }
 }
