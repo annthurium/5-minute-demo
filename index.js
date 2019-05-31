@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
 
 const app = express();
 
@@ -12,6 +13,13 @@ app.post('/sms', (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
+
+app.post('/voice', (req, res) => {
+  const twiml = new VoiceResponse();
+  twiml.play({}, 'https://demo.twilio.com/docs/classic.mp3');
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+})
 
 http.createServer(app).listen(1337, () => {
   console.log('express server listening on port 1337');
