@@ -11,9 +11,13 @@ app.use((req, res, next) => {
 });
 
 
+app.post('/voice', (req, res) => {
+  res.contentType('application/xml');
+  res.sendFile(path.join(__dirname , 'voice.xml'));
+});
+
 app.post('/sms', (req, res) => {
   res.contentType('application/xml');
-  console.log('u tried')
   res.sendFile(path.join(__dirname , 'sms.xml'));
 });
 
